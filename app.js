@@ -21,12 +21,14 @@ app.get('/items', (req, res) => {
 app.get('/items/:id', (req, res) => {
     try {
         const { id } = req.params;
+        // const {items} = itemsData
+
         const item = itemsData.find((item) => item.id === id);
 
         if(item){
-            res.status(200).json({ data: item })
+          res.status(200).json({ data: item })
         }else{
-            res.status(404).json({ error: `Item - ${id} - not found!` })
+            res.status(404).json(`No item found with Id ${id}`)
         }
 
     } catch (err) {
