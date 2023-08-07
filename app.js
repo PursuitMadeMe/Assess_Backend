@@ -12,6 +12,7 @@ app.get('/', (req, res) => {
 
 app.get('/items', (req, res) => {
     try {
+        
         res.status(200).json({ data: itemsData });
     } catch (err){
         res.status(500).json({ error: err.message })
@@ -21,7 +22,6 @@ app.get('/items', (req, res) => {
 app.get('/items/:id', (req, res) => {
     try {
         const { id } = req.params;
-        // const {items} = itemsData
 
         const item = itemsData.find((item) => item.id === id);
 
