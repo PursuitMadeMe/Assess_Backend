@@ -28,7 +28,7 @@ app.get('/items/:id', (req, res) => {
         if(item){
           res.status(200).json({ data: item })
         }else{
-            res.status(404).json(`No item found with Id ${id}`)
+            res.status(404).json({error: `No item found with Id ${id}`})
         }
 
     } catch (err) {
